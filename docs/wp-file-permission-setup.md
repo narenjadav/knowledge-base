@@ -82,3 +82,13 @@ sudo systemctl restart nginx
   ```
   http://localhost/your-site/wp-content/uploads/test.jpg
   ```
+
+## Conclusion
+
+Update file permision from root of site to make it writeable.
+
+```
+sudo chown -R www-data:www-data .
+sudo find . -type d -exec chmod 755 {} \;
+sudo find . -type f -exec chmod 644 {} \;
+```
