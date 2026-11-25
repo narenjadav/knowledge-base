@@ -1,59 +1,64 @@
-## 🚀 Git Setup & Commands
+# Git Setup and Everyday Commands
 
-### 1. Configure Git (One-time Setup)
+## 1. Configure Git (one-time setup)
+
 ```bash
 git config --global user.name "Your Name"
-git config --global user.email "youremail@domain.com"
-````
+git config --global user.email "you@example.com"
+git config --global init.defaultBranch main
+```
 
----
+## 2. Sign in to GitHub
 
-### 2. Clone a Repository
+GitHub no longer accepts account passwords for Git over HTTPS. Use one of these instead:
+
+**Option A: GitHub CLI (easiest)**
+
+```bash
+gh auth login        # follow the prompts, choose HTTPS
+gh auth setup-git    # lets git use the same login
+```
+
+**Option B: SSH key**
+
+```bash
+ssh-keygen -t ed25519 -C "you@example.com"
+cat ~/.ssh/id_ed25519.pub   # add this key at GitHub → Settings → SSH and GPG keys
+```
+
+Then clone with the SSH URL (`git@github.com:<username>/<repo_name>.git`).
+
+> Don't put a personal access token inside the clone URL (`https://<token>@github.com/...`). It gets saved in plain text in `.git/config` and your shell history.
+
+## 3. Clone a repository
 
 ```bash
 git clone <repository_url>
 ```
 
----
-
-#### ⚠️ Fix for GitHub Authentication
-
-GitHub no longer supports password authentication.
-Use a **Personal Access Token (PAT)** instead:
+## 4. Stage files
 
 ```bash
-git clone https://<your_token>@github.com/<username>/<repo_name>.git
+git add <file1> <file2>   # specific files
+git add .                 # everything in the current folder
 ```
 
----
-
-### 3. Stage Files
+## 5. Commit changes
 
 ```bash
-git add <file1> <file2>   # Add specific files
-git add .                 # Add all files
+git commit -m "Short description of the change"
 ```
 
----
-
-### 4. Commit Changes
+## 6. Push changes
 
 ```bash
-git commit -m "Your commit message"
+git push -u origin main   # first push sets the upstream
+git push                  # after that
 ```
 
----
-
-### 5. Push Changes
+## 7. Add a remote (if the repo has none)
 
 ```bash
-git push -u origin main
-```
-
----
-
-### 6. Add a Remote (if not set already)
-
-```bash
-git remote add origin https://<your_token>@github.com/<username>/<repo_name>.git
+git remote add origin <repository_url>
+git remote -v             # check it
 ```
