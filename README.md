@@ -1,14 +1,22 @@
 # Knowledge Base
 
-This repository is a curated collection of technical documentation and reusable code snippets written in Markdown (`.md`).  
-It is designed to act as a personal reference library covering topics like Git, WordPress, PHP, Laravel, Linux, JavaScript, and more.  
+Short, practical guides I keep for everyday WordPress and web development work. Each one is a copy-paste checklist I actually use when setting up projects or fixing servers.
 
-## 📂 Structure
-- `docs/` → Knowledge base articles, tutorials, and troubleshooting guides  
-- `snippets/` → Organized code snippets for different languages and frameworks  
+## Guides
 
-## 🎯 Purpose
-- Keep a central place for technical learning & notes  
-- Quickly find and reuse code snippets  
-- Document best practices and workflows  
+| Guide | What it covers |
+|---|---|
+| [Git setup and everyday commands](docs/git-setup.md) | One-time Git config, cloning, staging, committing, pushing, and signing in to GitHub without exposing a token |
+| [Secure WordPress file permissions (Ubuntu + Apache/Nginx)](docs/wp-file-permission-setup.md) | Correct ownership and permissions for a WordPress site, a locked-down `wp-config.php`, a writable uploads folder, and how to stop the FTP prompt |
 
+## How to use
+
+Open a guide, replace the placeholders (`<repository_url>`, `/var/www/html/your-site`, `<your-user>`) with your own values, and run the commands in order.
+
+## Coming next
+
+More guides on WP-CLI, WordPress debugging (`WP_DEBUG`, Query Monitor), site migrations, and DNS/SSL setup.
+
+---
+
+Maintained by [Naren Jadav](https://narenjadav.com), Full Stack WordPress Developer.
